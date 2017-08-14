@@ -1,12 +1,65 @@
 <template>
-  <div class="header">
-    <md-toolbar md-theme="black">
-      <h1 class="md-title">studioflow</h1>
-      <md-bottom-bar md-theme="default">
-        <md-bottom-bar-item md-icon="group">Bandas</md-bottom-bar-item>
-        <md-bottom-bar-item md-icon="query_builder">Horários</md-bottom-bar-item>
+  <div class="container">
+  	<div class="title-container">
 
-      </md-bottom-bar>
-    </md-toolbar>
-  </div>
+  		<h1 class="title">{{ titulo }}</h1>
+
+
+	  	<ul class="menu">
+  			<li v-for="route in routes" class="lista">
+	  				<router-link :to="route.path ? route.path : '/'" class="menu-item">{{ 	route.titulo }}</router-link>
+  			</li>
+  		</ul>
+		</div>
+</div>
 </template>
+
+<script>
+export default {
+  props: {
+    routes: {
+      type: Array,
+      required: true
+    }
+  },
+  data() {
+    return {
+      titulo: 'studioflow'
+    }
+  }
+}
+</script>
+
+<style scoped>
+.container .title-container {
+	margin: auto;
+	text-align: center;
+	font-family: helvetica;
+	display: table;
+
+}
+.container .title-container .title {
+	border: 3px solid #e6e6e6;
+	padding: 10px;
+	width: 300px;
+}
+/* Estilo do menu do header */
+.menu {
+	margin-right: 40px;
+	text-align: center;
+}
+.menu li {
+	display: inline;
+}
+.menu li:not(:first-child):before {
+  content: "|";
+  opacity: 0.4;
+}
+.menu .menu-item {
+	font-family: helvetica;
+	font-weight: bold;
+	color: #333;
+	text-decoration: none;
+	padding: 10px;
+}
+</style>

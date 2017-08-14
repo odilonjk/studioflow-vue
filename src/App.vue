@@ -1,46 +1,54 @@
 <template>
-  <div id="app">
-    <md-toolbar md-theme="black">
-      <h1 class="md-title">studioflow</h1>
-      <md-bottom-bar md-theme="default">
-        <md-bottom-bar-item md-icon="group">Bandas</md-bottom-bar-item>
-        <md-bottom-bar-item md-icon="query_builder">Horários</md-bottom-bar-item>
-
-      </md-bottom-bar>
-    </md-toolbar>
-
-
-
-
-    <div class="main-content" md-theme="black">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, rerum? Error sunt, aperiam dolores, atque expedita molestiae tenetur. Quis eveniet accusamus velit explicabo adipisci reiciendis modi eaque quas, officia excepturi.</p>
-    </div>
+  <div id="root">
+    <studio-header :routes="routes"/>
+      <transition name="fade">
+        <router-view></router-view>
+      </transition>
   </div>
 </template>
 
 <script>
+import { routes } from './routes'
+import Header from './components/shared/header/Header.vue'
 
 export default {
-  name: 'app',
+  components: {
+    'studio-header': Header
+  },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      routes,
+      menu: [
+        {
+          url: 'hello',
+          descricao: 'hello'
+        },
+        {
+          url: 'about',
+          descricao: 'about'
+        }
+      ]
     }
   }
 }
 </script>
 
 <style>
+
 body {
-  background-color: black;
+  background-color: grey;
 }
 
-.md-title {
-  color: teal;
+/* Estilo da transição entre componentes */
+.fade-enter-active, .fade-leave-active {
+  transition-property: opacity;
+  transition-duration: .25s;
+}
+.fade-enter-active {
+  transition-delay: .25s;
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
 }
 
-.main-content {
-  color: grey;
-  padding: 16px;
-}
 </style>
