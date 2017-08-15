@@ -1,17 +1,21 @@
 <template>
-  <div class="container">
-  	<div class="title-container">
-
-  		<h1 class="title">{{ titulo }}</h1>
-
-
-	  	<ul class="menu">
-  			<li v-for="route in routes" class="lista">
-	  				<router-link :to="route.path ? route.path : '/'" class="menu-item">{{ 	route.titulo }}</router-link>
-  			</li>
-  		</ul>
-		</div>
-</div>
+  <div class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="">
+        <img src="src/assets/equalizer.png" width="30" height="30">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li v-for="route in routes" class="nav-item">
+  	  				<router-link :to="route.path ? route.path : '/'" class="nav-link">{{ route.titulo }}</router-link>
+    			</li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 </template>
 
 <script>
@@ -31,35 +35,5 @@ export default {
 </script>
 
 <style scoped>
-.container .title-container {
-	margin: auto;
-	text-align: center;
-	font-family: helvetica;
-	display: table;
 
-}
-.container .title-container .title {
-	border: 3px solid #e6e6e6;
-	padding: 10px;
-	width: 300px;
-}
-/* Estilo do menu do header */
-.menu {
-	margin-right: 40px;
-	text-align: center;
-}
-.menu li {
-	display: inline;
-}
-.menu li:not(:first-child):before {
-  content: "|";
-  opacity: 0.4;
-}
-.menu .menu-item {
-	font-family: helvetica;
-	font-weight: bold;
-	color: #333;
-	text-decoration: none;
-	padding: 10px;
-}
 </style>

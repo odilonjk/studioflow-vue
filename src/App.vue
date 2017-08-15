@@ -1,33 +1,30 @@
 <template>
   <div id="root">
     <studio-header :routes="routes"/>
+    <div class="container-fluid">
       <transition name="fade">
         <router-view></router-view>
       </transition>
+    </div>
+    <div class="footer">
+      <studio-footer/>
+    </div>
   </div>
 </template>
 
 <script>
 import { routes } from './routes'
 import Header from './components/shared/header/Header.vue'
+import Footer from './components/shared/footer/Footer.vue'
 
 export default {
   components: {
-    'studio-header': Header
+    'studio-header': Header,
+    'studio-footer': Footer
   },
   data () {
     return {
-      routes,
-      menu: [
-        {
-          url: 'hello',
-          descricao: 'hello'
-        },
-        {
-          url: 'about',
-          descricao: 'about'
-        }
-      ]
+      routes
     }
   }
 }
@@ -50,5 +47,9 @@ body {
 .fade-enter, .fade-leave-active {
   opacity: 0
 }
-
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
 </style>

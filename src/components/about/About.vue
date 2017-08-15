@@ -1,10 +1,9 @@
 <template>
   <div class="about">
-    <h1>About us...</h1>
-
-    <router-link to="/hello">
-      Back to hello...
-    </router-link>
+    <p>
+      <h3>studioflow</h3>
+      Projeto opensource para controle de um estúdio de música.
+    </p>
   </div>
 </template>
 
@@ -13,8 +12,21 @@ export default {
   name: 'about',
   data() {
     return {
-      
+
     }
   }
 }
 </script>
+
+<style>
+.contato {
+  list-style-type: none;
+  padding: 10px 10px 0 0;
+}
+a {
+  color: inherit;
+}
+a:hover {
+  color: #333;
+}
+</style>

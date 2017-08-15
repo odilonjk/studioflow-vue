@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.css';
 
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)

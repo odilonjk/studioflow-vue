@@ -1,6 +1,8 @@
 <template>
   <div id="root">
-    lalalala
+    <div id="content">
+      em construção...
+    </div>
   </div>
 </template>
 <script>
